@@ -1,0 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_ui/pages/WechatPage.dart';
+
+// 路由表
+final Map<String, WidgetBuilder> routes = {
+  WeChatPage.PAGE_NAME: (context) => WeChatPage(),
+};
