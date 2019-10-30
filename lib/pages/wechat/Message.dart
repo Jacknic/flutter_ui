@@ -10,52 +10,32 @@ class MessageList extends StatelessWidget {
     return ListView.builder(
       itemCount: 30,
       itemBuilder: (context, index) {
-        return RaisedButton(
+        return FlatButton(
           color: Colors.white,
-          padding: EdgeInsets.all(0),
-          child: Container(
-            padding: EdgeInsets.all(8),
-            height: 60,
-            child: Stack(
+          child: ListTile(
+            contentPadding: EdgeInsets.only(top: 4, bottom: 4),
+            leading: Icon(
+              Icons.image,
+              size: 46,
+              color: Colors.primaries[random.nextInt(Colors.primaries.length)],
+            ),
+            title: Text("工作讨论中心 $index"),
+            subtitle: Text("消息内容 $index"),
+            trailing: Column(
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.image,
-                      size: 46,
-                      color: Colors
-                          .primaries[random.nextInt(Colors.primaries.length)],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Text("工作讨论中心"),
-                        Text(
-                          "工作讨论中心",
-                          style: TextStyle(color: Colors.grey, fontSize: 12),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Text("16:38",
-                      style: TextStyle(color: Colors.grey, fontSize: 12)),
-                ),
-                Align(
-                    alignment: Alignment.bottomRight,
-                    child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: Icon(
-                        Icons.notifications,
-                        size: index * index % 6 == 1 ? 12 : 0,
-                        color: Colors.grey,
-                      ),
-                    )),
+                Text("16:38",
+                    style: TextStyle(color: Colors.grey, fontSize: 12)),
+                Icon(
+                  Icons.notifications,
+                  size: index * index % 6 == 1 ? 12 : 0,
+                  color: Colors.grey,
+                )
               ],
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            print('点击 $index');
+          },
         );
       },
     );
